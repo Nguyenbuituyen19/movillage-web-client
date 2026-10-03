@@ -1,0 +1,903 @@
+export interface RoomItem {
+  id: string;
+  name: string;
+  capacity: string;
+  capacityNumber: number;
+  image: string;
+  tagline: string;
+  pricePerNight?: string;
+  features: string[];
+  description: string;
+  bedType: string;
+  view: string;
+  amenities: string[];
+}
+
+export interface ExperienceItem {
+  id: string;
+  title: string;
+  category: 'facilities' | 'workshops' | 'nearby';
+  description: string;
+  image?: string;
+  icon?: string;
+}
+
+export interface PackageItem {
+  id: string;
+  title: string;
+  badge?: string;
+  subtitle: string;
+  price: string;
+  priceUnit: string;
+  features: string[];
+  itinerarySummary: string[];
+  isPopular?: boolean;
+}
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  image: string;
+  category: 'all' | 'landscape' | 'rooms' | 'facilities' | 'dining';
+  aspect?: string;
+}
+
+export interface FAQItem {
+  id: string;
+  num: string;
+  question: string;
+  answer: string;
+}
+
+export const siteContent = {
+  vi: {
+    nav: {
+      story: 'Câu chuyện',
+      rooms: 'Phòng nghỉ',
+      experiences: 'Trải nghiệm',
+      gallery: 'Thư viện',
+      directions: 'Đường đến Mơ',
+      packages: 'Gói dịch vụ',
+      bookNow: 'Đặt chỗ nghỉ',
+    },
+    hero: {
+      title: 'Một giấc mơ dịu trên mặt hồ Hòa Bình',
+      sub: 'Khu nghỉ dưỡng ven hồ mang đậm hồn cốt văn hóa Mường giữa thiên nhiên Tây Bắc thanh bình.',
+      ctaPrimary: 'Đặt chỗ nghỉ của bạn',
+      ctaSecondary: 'Xem phòng nghỉ',
+      scrollDown: 'Cuộn để khám phá',
+    },
+    story: {
+      tagline: 'Chuyện của Mơ',
+      title: 'Một giấc mơ dịu trên mặt hồ Hòa Bình',
+      lead: 'Mơ Village là khu nghỉ dưỡng ven hồ kết hợp sự bình yên của nước, sương mù, rừng cây với sự ấm áp của kiến trúc nhà sàn Mường. Một nơi hiện đại, nhẹ nhàng kỳ ảo để nghỉ ngơi, kết nối và khám phá.',
+      cards: [
+        {
+          title: 'Hồ Hòa Bình',
+          desc: 'Hồ nhân tạo lớn nhất Việt Nam, hình thành từ đập thủy điện Hòa Bình năm 1994. Diện tích 230 km², sâu tới 40m, với cảnh sương mù huyền ảo vào buổi sáng.',
+          image: '/images/campus-lake.webp',
+          stat: '230 km² Mặt nước',
+        },
+        {
+          title: 'Đà Bắc - Hòa Bình',
+          desc: 'Cách Hà Nội 100km (khoảng 2–2.5 giờ lái xe). Vùng đất của người Mường với văn hóa truyền thống đậm đà, khí hậu mát mẻ quanh năm cùng thác nước và hang động nguyên sơ.',
+          image: '/images/campus-da-bac.webp',
+          stat: '~100 km Từ Hà Nội',
+        },
+        {
+          title: 'Kiến trúc nhà sàn',
+          desc: 'Lấy cảm hứng từ nhà sàn truyền thống Mường với cột gỗ tự nhiên, mái lợp tranh và không gian mở thoáng đãng, kết hợp hài hòa giữa di sản bản địa và tiện nghi nghỉ dưỡng hiện đại.',
+          image: '/images/room-nha-tao.webp',
+          stat: '100% Gỗ & Vật liệu tự nhiên',
+        },
+      ],
+    },
+    rooms: {
+      tagline: 'Mơ có gì',
+      title: 'Các hạng phòng nghỉ',
+      sub: 'Mỗi căn nhà tại Mơ mang một cái tên thân thương từ cây trái Tây Bắc, hướng nhìn ôm trọn hồ nước hoặc rừng thông xanh mát.',
+      viewDetails: 'Chi tiết phòng',
+      bookThis: 'Đặt phòng này',
+      guestLabel: 'người',
+      items: [
+        {
+          id: 'nha-tao',
+          name: 'Nhà Táo',
+          capacity: '2 người',
+          capacityNumber: 2,
+          image: '/images/room-nha-tao.webp',
+          tagline: 'Phòng đôi ấm cúng với view hồ, thiết kế tối giản nhưng đầy đủ tiện nghi.',
+          pricePerNight: 'Từ 1.450.000đ/đêm',
+          bedType: '1 Giường King Size',
+          view: 'Trực diện Hồ Hòa Bình',
+          features: [
+            'View hồ Hòa Bình khoáng đạt',
+            'Giường đôi king size êm ái',
+            'Phòng tắm riêng với vòi sen cao cấp',
+            'Ban công riêng đón gió hồ',
+          ],
+          amenities: ['Điều hòa 2 chiều', 'Trà & Cà phê miễn phí', 'Wifi tốc độ cao', 'Máy sấy tóc', 'Khăn tắm & Đồ dùng cá nhân hữu cơ'],
+          description: 'Nhà Táo là không gian lãng mạn dành cho các cặp đôi hoặc những ai muốn tìm một góc tĩnh lặng riêng mình. Với ban công hướng thẳng ra lòng hồ, bạn có thể đón bình minh ngay trên giường ngủ.',
+        },
+        {
+          id: 'nha-dao',
+          name: 'Nhà Đào',
+          capacity: '2 người',
+          capacityNumber: 2,
+          image: '/images/room-nha-dao.webp',
+          tagline: 'Phòng double với ban công riêng, không gian yên tĩnh hướng rừng thông xanh mát.',
+          pricePerNight: 'Từ 1.550.000đ/đêm',
+          bedType: '2 Giường đơn hoặc 1 Giường đôi',
+          view: 'Rừng thông & Núi đá vôi',
+          features: [
+            'View rừng thông mát mẻ',
+            'Linh hoạt 2 giường đơn hoặc giường đôi',
+            'Phòng tắm với bồn tắm ngâm',
+            'Góc làm việc & đọc sách thư thái',
+          ],
+          amenities: ['Bồn tắm ngâm', 'Điều hòa 2 chiều', 'Bàn trà làm việc', 'Máy sấy tóc', 'Ban công hóng mát'],
+          description: 'Ẩn mình dưới tán cây rừng, Nhà Đào mang lại cảm giác tĩnh mịch, mát lành và cực kỳ dễ chịu. Thích hợp cho chuyến đi nghỉ ngơi hồi phục năng lượng và đọc sách.',
+        },
+        {
+          id: 'nha-man',
+          name: 'Nhà Mận',
+          capacity: '2 người',
+          capacityNumber: 2,
+          image: '/images/room-nha-tao.webp',
+          tagline: 'Suite cao cấp với phòng tắm lớn, view hồ toàn cảnh panorama.',
+          pricePerNight: 'Từ 1.850.000đ/đêm',
+          bedType: '1 Giường King Size Premium',
+          view: 'Panorama Hồ & Núi Karst',
+          features: [
+            'View hồ panorama 180 độ',
+            'Phòng khách riêng ấm cúng',
+            'Bồn tắm ngâm thư giãn hướng hồ',
+            'Minibar & máy pha cà phê cao cấp',
+          ],
+          amenities: ['Bồn tắm view hồ', 'Phòng khách riêng', 'Máy pha cà phê', 'Loa Bluetooth', 'Minibar miễn phí'],
+          description: 'Căn Suite cao cấp nhất tại Mơ với góc nhìn 180 độ không giới hạn ra mặt hồ biếc xanh. Tận hưởng ly rượu vang bên bồn tắm ngâm lúc hoàng hôn buông xuống.',
+        },
+        {
+          id: 'nha-mit',
+          name: 'Nhà Mít',
+          capacity: '3 người',
+          capacityNumber: 3,
+          image: '/images/room-nha-mit.webp',
+          tagline: 'Phòng gia đình nhỏ với 3 giường đơn hoặc gia đình, phù hợp cho nhóm bạn thân.',
+          pricePerNight: 'Từ 2.100.000đ/đêm',
+          bedType: '3 Giường đơn hoặc 1 Giường đôi + 1 Giường đơn',
+          view: 'Khu vườn & Mặt hồ',
+          features: [
+            '3 giường đơn tiêu chuẩn',
+            'Phòng tắm rộng rãi',
+            'Không gian sinh hoạt chung thoáng',
+            'Tủ lạnh mini & bàn trà ngoài trời',
+          ],
+          amenities: ['Điều hòa 2 chiều', 'Tủ lạnh mini', 'Bàn trà sân vườn', 'Két an toàn', 'Đồ dùng vệ sinh hữu cơ'],
+          description: 'Lựa chọn lý tưởng cho gia đình nhỏ hoặc nhóm bạn 3 người cùng tận hưởng kỳ nghỉ gắn kết, ngắm hồ và trò chuyện bên hiên nhà.',
+        },
+        {
+          id: 'nha-sang',
+          name: 'Nhà Sang',
+          capacity: '8 người',
+          capacityNumber: 8,
+          image: '/images/room-nha-sang.webp',
+          tagline: 'Villa lớn với 3 phòng ngủ riêng biệt, bếp đầy đủ, sân hiên BBQ riêng.',
+          pricePerNight: 'Từ 4.800.000đ/đêm',
+          bedType: '3 Phòng ngủ (2 King + 2 Twin)',
+          view: 'Toàn cảnh vịnh hồ & Vườn cây',
+          features: [
+            '3 phòng ngủ riêng biệt tiện nghi',
+            'Khu bếp trang bị đầy đủ dụng cụ',
+            'Phòng khách lớn kết nối gia đình',
+            'Sân hiên nướng BBQ riêng biệt',
+          ],
+          amenities: ['Bếp nấu & Gia vị cơ bản', 'Bếp nướng BBQ ngoài trời', 'Bàn ăn 8-10 người', 'Smart TV', 'Máy giặt & sấy'],
+          description: 'Biệt thự riêng tư tuyệt đối dành cho đại gia đình hoặc nhóm bạn thân. Tự do tổ chức tiệc BBQ ấm cúng ngắm mặt hồ lung linh về đêm.',
+        },
+        {
+          id: 'nha-cong-dong',
+          name: 'Nhà Cộng đồng',
+          capacity: '20 người',
+          capacityNumber: 20,
+          image: '/images/room-nha-cong-dong.webp',
+          tagline: 'Không gian nhà sàn tập thể cho đoàn lớn, team building, workshop, hội nhóm.',
+          pricePerNight: 'Từ 7.500.000đ/đêm trọn sàn',
+          bedType: 'Hệ thống đệm ngủ truyền thống hoặc giường tầng',
+          view: 'Không gian mở 4 bề mây núi',
+          features: [
+            'Sức chứa tới 20 người lớn',
+            'Hệ thống 4 phòng tắm & vệ sinh riêng',
+            'Không gian sinh hoạt chung rộng lớn',
+            'Rất phù hợp team building & workshop',
+          ],
+          amenities: ['Chiếu & chăn nệm tiêu chuẩn khách sạn', 'Quạt & Điều hòa công suất lớn', '4 Phòng tắm nước nóng', 'Sàn gỗ bóng truyền thống'],
+          description: 'Trải nghiệm ngủ nhà sàn Mường đích thực nhưng với sự sạch sẽ và tiện nghi hiện đại. Nơi lý tưởng để các công ty hoặc nhóm bạn lớn cùng chung sống, kết nối bền chặt.',
+        },
+      ],
+    },
+    experiences: {
+      tagline: 'Trải nghiệm',
+      title: 'Khám phá và tận hưởng',
+      sub: 'Từ hoạt động phiêu lưu đến workshop nghệ thuật, mỗi trải nghiệm là một kỷ niệm',
+      categories: {
+        facilities: 'Hoạt động tại Mơ',
+        workshops: 'Workshop & văn hóa',
+        nearby: 'Điểm đến lân cận',
+      },
+      facilitiesList: [
+        {
+          id: 'onsen',
+          title: 'Bể sục Onsen 4 mùa',
+          desc: 'Thư giãn trong bể sục nước nóng tự nhiên giữa không gian núi rừng',
+          image: '/images/fac-onsen.webp',
+        },
+        {
+          id: 'sauna',
+          title: 'Phòng xông ướt, xông khô',
+          desc: 'Xông hơi thải độc, làm sạch cơ thể và tâm trí',
+          image: '/images/campus-lake.webp',
+        },
+        {
+          id: 'herbal-bath',
+          title: 'Ngâm bồn thuốc thảo dược',
+          desc: 'Ngâm mình trong các loại thảo dược thiên nhiên, phục hồi năng lượng',
+          image: '/images/fac-herbal-bath.webp',
+        },
+        {
+          id: 'lake-fun',
+          title: 'Giải trí trên hồ',
+          desc: 'Kayak, cano, câu cá - khám phá hồ Hòa Bình bằng nhiều cách',
+          image: '/images/fac-billiard.webp',
+        },
+        {
+          id: 'boat-tour',
+          title: 'Tour thuyền thăm quan',
+          desc: 'Du thuyền ngắm hoàng hôn, ghé thăm làng nổi và làng cá',
+          image: '/images/gallery-lake-deck.webp',
+        },
+        {
+          id: 'teambuilding',
+          title: 'Team Building',
+          desc: 'Tổ chức team building cho công ty và nhóm lớn với hoạt động ngoài trời và không gian riêng tư',
+          image: '/images/gallery-pool-sunset.webp',
+        },
+      ],
+      workshopsList: [
+        {
+          id: 'cam-hoa',
+          title: 'Cắm hoa',
+          desc: 'Workshop cắm hoa phong cách tự nhiên với hoa địa phương, thể hiện vẻ đẹp giản dị của núi rừng Hòa Bình',
+        },
+        {
+          id: 'lam-banh',
+          title: 'Làm bánh',
+          desc: 'Học làm bánh truyền thống Mường như bánh dày, cốm, và các món bánh hiện đại từ nguyên liệu địa phương',
+        },
+        {
+          id: 'thu-cong',
+          title: 'Thủ công',
+          desc: 'Dệt thổ cẩm Mường với họa tiết truyền thống, làm đồ gỗ, và học các nghề thủ công từ người dân bản địa',
+        },
+      ],
+      nearbyList: [
+        {
+          id: 'chua-thac-bo',
+          title: 'Chúa Thác Bờ',
+          desc: 'Thác nước hùng vĩ cao 300m với cảnh quan tráng lệ, nơi du khách có thể chiêm ngưỡng thiên nhiên hoang sơ và chụp ảnh check-in đẹp mắt',
+          distance: '15km',
+        },
+        {
+          id: 'suoi-ke',
+          title: 'Suối Ké',
+          desc: 'Suối đá tự nhiên trong vắt với dòng nước mát lạnh quanh năm, nơi lý tưởng để tắm mát và thư giãn giữa thiên nhiên',
+          distance: '8km',
+        },
+        {
+          id: 'hang-lo-lan',
+          title: 'Hang Lỗ Làn',
+          desc: 'Hang động tự nhiên với nhũ đá hình thành hàng nghìn năm, một kỳ quan địa chất độc đáo của vùng núi đá vôi Hòa Bình',
+          distance: '12km',
+        },
+        {
+          id: 'ban-sung',
+          title: 'Bản Sưng',
+          desc: 'Bản làng Mường truyền thống giữ gìn văn hóa bản địa, nơi bạn có thể trải nghiệm lối sống, trang phục và ẩm thực của người Mường',
+          distance: '10km',
+        },
+      ],
+    },
+    gallery: {
+      tagline: 'Góc nhìn Mơ',
+      title: 'Thư viện ảnh',
+      sub: 'Những khoảnh khắc đẹp như tranh vẽ ghi lại tại Mơ Village qua các mùa trong năm.',
+      filterAll: 'Tất cả',
+      filterLandscape: 'Cảnh quan hồ',
+      filterRooms: 'Không gian nghỉ',
+      filterFacilities: 'Tiện ích & Thư giãn',
+      filterDining: 'Ẩm thực & Cafe',
+      images: [
+        { id: '1', title: 'Toàn cảnh Mơ Village lúc lên đèn', image: '/images/gallery-aerial.webp', category: 'landscape' as const },
+        { id: '2', title: 'Góc ban công ngắm hồ', image: '/images/gallery-balcony.webp', category: 'rooms' as const },
+        { id: '3', title: 'Bể bơi vô cực uốn lượn', image: '/images/fac-onsen.webp', category: 'facilities' as const },
+        { id: '4', title: 'Mâm cơm ẩm thực Tây Bắc', image: '/images/gallery-restaurant.webp', category: 'dining' as const },
+        { id: '5', title: 'Ngắm hồ Hòa Bình bảng lảng sương sớm', image: '/images/campus-lake.webp', category: 'landscape' as const },
+        { id: '6', title: 'Hiên nhà gỗ & bồn tắm ngâm', image: '/images/room-nha-tao.webp', category: 'rooms' as const },
+        { id: '7', title: 'Thư giãn trên lưới võng mặt hồ', image: '/images/gallery-lake-deck.webp', category: 'landscape' as const },
+        { id: '8', title: 'Không gian giải trí bi-a', image: '/images/fac-billiard.webp', category: 'facilities' as const },
+        { id: '9', title: 'Nhà Đào nép mình bên tán cây', image: '/images/room-nha-dao.webp', category: 'rooms' as const },
+        { id: '10', title: 'Khuôn viên bãi cỏ và cảnh quan xanh', image: '/images/fac-teambuilding.webp', category: 'facilities' as const },
+        { id: '11', title: 'Bể bơi ôm trọn vách núi xanh', image: '/images/fac-sauna.webp', category: 'facilities' as const },
+        { id: '12', title: 'Khung cửa sổ view vịnh hồ', image: '/images/gallery-interior-wood.webp', category: 'rooms' as const },
+        { id: '13', title: 'Sàn gỗ ngắm mây trời', image: '/images/gallery-walkway.webp', category: 'landscape' as const },
+        { id: '14', title: 'Bể bơi vô cực dưới trời trong biếc', image: '/images/gallery-pool-sunset.webp', category: 'facilities' as const },
+      ],
+    },
+    directions: {
+      tagline: 'Chỉ đường & Lưu ý',
+      title: 'Đường đến Mơ',
+      sub: 'Rời phố một chút. Chạm hồ thật gần.',
+      mapTitle: 'Vị trí Mơ Village trên Google Maps',
+      openGoogleMaps: 'Chỉ đường',
+      hotlineDirect: 'Hotline hỗ trợ dẫn đường: 0964 863 838',
+      routeDesc: 'Từ trung tâm Hà Nội, hành trình hơn 100 km đưa bạn qua những triền núi và đường ven hồ. Cung đường đẹp, có đoạn đèo dốc - hãy đi thong thả, Mơ vẫn ở đây chờ.',
+      routeSteps: ['Hà Nội', 'Hòa Lạc', 'Hòa Bình', 'Xóm Mơ'],
+      howToGet: [
+        {
+          title: 'Tự lái Ô tô / Xe máy',
+          desc: 'Từ Trung tâm Hà Nội đi theo Đại lộ Thăng Long -> Cao tốc Hòa Lạc - Hòa Bình -> Đường tỉnh 433 lên Đà Bắc -> Đến Mơ Village (Khoảng 2h - 2h30). Đường nhựa đẹp, xe sedan 4 chỗ đi thuận tiện.',
+          icon: '🚗',
+        },
+        {
+          title: 'Xe Limousine đưa đón',
+          desc: 'Mơ Village có liên kết với các nhà xe Limousine 9-16 chỗ chất lượng cao đưa đón tận nơi từ nội thành Hà Nội về thẳng Mơ hoặc Cảng Bích Hạ/Thung Nai.',
+          icon: '🚐',
+        },
+        {
+          title: 'Đường thủy du thuyền',
+          desc: 'Bạn có thể gửi ô tô tại Cảng Thung Nai/Cảng Bích Hạ và trải nghiệm cano cao tốc lướt trên mặt hồ 20 phút để đến thẳng cầu tàu của Mơ Village.',
+          icon: '🚤',
+        },
+      ],
+      faqs: [
+        {
+          id: 'faq-1',
+          num: '01',
+          question: 'Mơ cách Hà Nội bao xa?',
+          answer: 'Mơ nằm bên hồ Hòa Bình, tại khu vực Đà Bắc, cách Hà Nội hơn 100 km. Thời gian di chuyển thường khoảng 3 – 3,5 giờ tùy cung đường và điều kiện giao thông.',
+        },
+        {
+          id: 'faq-2',
+          num: '02',
+          question: 'Đến Mơ có thể làm gì?',
+          answer: 'Bạn có thể tham gia chèo kayak/SUP trên hồ, bơi bể bơi vô cực nước ấm, tắm khoáng thảo dược, thưởng thức ẩm thực Mường và tham gia các workshop văn hóa truyền thống.',
+        },
+        {
+          id: 'faq-3',
+          num: '03',
+          question: 'Mơ có phù hợp với gia đình và đoàn nhỏ?',
+          answer: 'Rất phù hợp! Mơ có nhiều hạng phòng đa dạng từ Nhà Mít, Nhà Sang (villa 3 phòng ngủ có bếp và BBQ) đến Nhà Sàn cộng đồng, cùng khuôn viên bãi cỏ rộng rãi cho trẻ em vui chơi.',
+        },
+        {
+          id: 'faq-4',
+          num: '04',
+          question: 'Nên đặt phòng trước bao lâu?',
+          answer: 'Vào các dịp cuối tuần và lễ tết, Mơ thường hết phòng sớm. Quý khách nên đặt trước từ 1 đến 3 tuần để chọn được căn nhà và dịch vụ ưng ý nhất.',
+        },
+      ],
+    },
+    packages: {
+      tagline: 'Gói & Dịch vụ',
+      title: 'Các gói combo & dịch vụ',
+      sub: 'Lựa chọn gói nghỉ dưỡng trọn gói để thảnh thơi tận hưởng trọn vẹn từng khoảnh khắc.',
+      selectPackage: 'Chọn gói này',
+      items: [
+        {
+          id: 'combo-2n1d',
+          title: 'Weekend Escape (2N1Đ)',
+          subtitle: 'Kỳ nghỉ nhanh cuối tuần nạp lại năng lượng',
+          price: '1.800.000',
+          priceUnit: 'đ/khách',
+          isPopular: false,
+          features: [
+            '1 đêm nghỉ tại phòng tiêu chuẩn view hồ',
+            'Bữa sáng buffet/set menu bản địa thịnh soạn',
+            '1 bữa ăn chính đặc sản Mường (trưa hoặc tối)',
+            'Miễn phí sử dụng bể bơi & sàn ngắm cảnh',
+            'Tặng 01 giờ chèo thuyền Kayak hoặc cần câu cá',
+            'Miễn phí trà, cafe và nước suối tại phòng',
+          ],
+          itinerarySummary: [
+            'Ngày 1: Check-in 14:00 -> Thưởng trà chiều ngắm hồ -> Chèo Kayak -> Bữa tối đặc sản Mường -> Lửa trại ngắm sao.',
+            'Ngày 2: Yoga đón bình minh -> Điểm tâm sáng -> Thư giãn bể bơi/xông hơi -> Check-out 12:00.',
+          ],
+        },
+        {
+          id: 'combo-3n2d',
+          title: 'Complete Experience (3N2Đ)',
+          subtitle: 'Trải nghiệm sâu sắc và trọn vẹn nhất tại Mơ',
+          price: '3.200.000',
+          priceUnit: 'đ/khách',
+          isPopular: true,
+          badge: 'Khuyên Dùng ★',
+          features: [
+            '2 đêm nghỉ dưỡng tại hạng phòng cao cấp',
+            'Toàn bộ 02 bữa sáng + 02 bữa chính đặc sản vùng cao',
+            'Tour du thuyền ngắm hoàng hôn vịnh hồ 90 phút',
+            '01 buổi trải nghiệm Workshop (Cắm hoa hoặc Làm bánh bản địa)',
+            'Trải nghiệm ngâm bồn lá thuốc & xông hơi đá muối thải độc',
+            'Miễn phí không giới hạn chèo Kayak & dụng cụ câu cá',
+          ],
+          itinerarySummary: [
+            'Ngày 1: Đón tiếp nồng ấm -> Check-in -> Thưởng trà -> Chèo Kayak hoàng hôn -> Bữa tối lẩu cá lăng ven hồ.',
+            'Ngày 2: Tour thuyền thăm đảo đá vôi & đền Thác Bờ -> Workshop văn hóa -> Ngâm bồn khoáng thuốc Mường -> Tiệc nướng BBQ.',
+            'Ngày 3: Dạo bộ làng cổ -> Điểm tâm -> Check-out với quà lưu niệm đặc sản Mơ.',
+          ],
+        },
+      ],
+    },
+    booking: {
+      tagline: 'GỬI MỘT LỜI HẸN',
+      title: 'Cuối tuần này, mình đi Mơ nhé?',
+      sub: 'Chọn ngày, chọn người đồng hành. Phần chuẩn bị chu đáo, để Mơ lo.',
+      form: {
+        fullName: 'Họ và tên của bạn',
+        fullNamePlaceholder: 'Ví dụ: Nguyễn Văn An',
+        phone: 'Số điện thoại / Zalo',
+        phonePlaceholder: 'Ví dụ: 0987 654 321',
+        email: 'Địa chỉ Email (tùy chọn)',
+        emailPlaceholder: 'name@example.com',
+        checkIn: 'Ngày nhận phòng',
+        checkOut: 'Ngày trả phòng',
+        adults: 'Người lớn (>12 tuổi)',
+        children: 'Trẻ em (dưới 12 tuổi)',
+        roomType: 'Hạng phòng hoặc Gói combo bạn quan tâm',
+        roomTypePlaceholder: '-- Chọn hạng phòng hoặc combo --',
+        specialRequests: 'Ghi chú thêm (yêu cầu ăn uống, xe đưa đón, tổ chức sự kiện...)',
+        specialRequestsPlaceholder: 'Ví dụ: Cần phòng tầng 2 view hồ đẹp, cần xe đón từ Keangnam...',
+        submit: 'Gửi yêu cầu đặt phòng',
+        submitting: 'Đang gửi yêu cầu...',
+        successTitle: 'Gửi yêu cầu thành công!',
+        successMessage: 'Cảm ơn bạn đã liên hệ Mơ Village. Đội ngũ tư vấn sẽ gọi lại cho bạn qua Zalo/Điện thoại trong vòng 15 phút để xác nhận chi tiết.',
+      },
+    },
+    footer: {
+      aboutTitle: 'Mơ Village Resort',
+      aboutDesc: 'Một giấc mơ dịu trên mặt hồ Hòa Bình. Nơi bạn tìm lại sự cân bằng, hít hà không khí núi rừng và tận hưởng những khoảnh khắc quý giá.',
+      quickLinksTitle: 'Liên kết nhanh',
+      contactTitle: 'Thông tin liên hệ',
+      address: 'Xóm Ké, Xã Hiền Lương, Huyện Đà Bắc, Tỉnh Hòa Bình, Việt Nam',
+      hotline: '0964 863 838',
+      email: 'booking@movillage.vn',
+      hours: 'Phục vụ 24/7 hàng ngày',
+      followUs: 'Mạng xã hội',
+      copyright: '© 2026 Mơ Village Resort. Tất cả quyền được bảo lưu.',
+      poweredBy: 'A gentle dream on Hòa Bình Lake',
+    },
+  },
+  en: {
+    nav: {
+      story: 'Story',
+      rooms: 'Rooms',
+      experiences: 'Experiences',
+      gallery: 'Gallery',
+      directions: 'Directions',
+      packages: 'Packages',
+      bookNow: 'Book a Stay',
+    },
+    hero: {
+      title: 'A gentle dream on Hòa Bình Lake',
+      sub: 'A serene lakeside sanctuary blending authentic Mường stilt house heritage with peaceful Northwest nature.',
+      ctaPrimary: 'Reserve Your Stay',
+      ctaSecondary: 'Explore Rooms',
+      scrollDown: 'Scroll to explore',
+    },
+    story: {
+      tagline: 'Our Story',
+      title: 'A gentle dream on Hòa Bình Lake',
+      lead: 'Mơ Village is a lakeside retreat harmonizing the serenity of water, morning mist, and native forest with the genuine warmth of traditional Mường stilt house architecture. A modern, poetic haven to rest, reconnect, and discover.',
+      cards: [
+        {
+          title: 'Hòa Bình Lake',
+          desc: 'The largest reservoir in Vietnam, formed in 1994. Covering 230 km² with depths up to 40 meters, famous for magical morning mists over jade-green waters.',
+          image: '/images/campus-lake.webp',
+          stat: '230 km² Water Surface',
+        },
+        {
+          title: 'Đà Bắc - Hòa Bình',
+          desc: 'Located 100km from Hanoi (approx. 2–2.5 hours drive). An authentic homeland of the Mường people with lush forests, cool mountain climate, and untouched waterfalls.',
+          image: '/images/campus-da-bac.webp',
+          stat: '~100 km From Hanoi',
+        },
+        {
+          title: 'Stilt House Architecture',
+          desc: 'Inspired by traditional Mường wooden stilt houses with thatch roofs, natural timber beams, and open-air decks, gracefully marrying cultural heritage with upscale boutique comfort.',
+          image: '/images/room-nha-tao.webp',
+          stat: '100% Natural Materials',
+        },
+      ],
+    },
+    rooms: {
+      tagline: 'Accommodations',
+      title: 'Our Signature Rooms & Villas',
+      sub: 'Each house at Mơ carries a heartwarming name inspired by Northwest forest fruits, opening to sweeping lake or pine forest views.',
+      viewDetails: 'Room Details',
+      bookThis: 'Book this Room',
+      guestLabel: 'guests',
+      items: [
+        {
+          id: 'nha-tao',
+          name: 'Nhà Táo (Apple House)',
+          capacity: '2 guests',
+          capacityNumber: 2,
+          image: '/images/room-nha-tao.webp',
+          tagline: 'Cozy double room with direct lake view, minimal aesthetics and modern comfort.',
+          pricePerNight: 'From 1,450,000 VND/night',
+          bedType: '1 King Size Bed',
+          view: 'Direct Lake Hòa Bình View',
+          features: [
+            'Breathtaking unobstructed lake view',
+            'Plush King-size bed',
+            'En-suite bathroom with rain shower',
+            'Private wooden balcony',
+          ],
+          amenities: ['Dual inverter AC', 'Complimentary tea & coffee', 'High-speed Wi-Fi', 'Hair dryer', 'Organic toiletries'],
+          description: 'A romantic sanctuary tailored for couples or solo travelers craving stillness. Watch the golden sunrise over misty waters right from your king bed.',
+        },
+        {
+          id: 'nha-dao',
+          name: 'Nhà Đào (Peach House)',
+          capacity: '2 guests',
+          capacityNumber: 2,
+          image: '/images/room-nha-dao.webp',
+          tagline: 'Double room with private balcony embraced by pine forest serenity.',
+          pricePerNight: 'From 1,550,000 VND/night',
+          bedType: '2 Twin Beds or 1 Double Bed',
+          view: 'Pine Forest & Karst Mountain',
+          features: [
+            'Serene pine forest panorama',
+            'Flexible twin or double bedding',
+            'En-suite bathroom with soaking bathtub',
+            'Reading & creative work nook',
+          ],
+          amenities: ['Soaking bathtub', 'Air conditioning', 'Work desk & tea table', 'Hair dryer', 'Forest-facing patio'],
+          description: 'Tucked beneath the canopy of pine trees, Nhà Đào is the quintessential peaceful retreat for mindful reading, healing, and sound sleep.',
+        },
+        {
+          id: 'nha-man',
+          name: 'Nhà Mận (Plum House)',
+          capacity: '2 guests',
+          capacityNumber: 2,
+          image: '/images/room-nha-tao.webp',
+          tagline: 'Premium Suite featuring grand bathroom and 180° panoramic lake scenery.',
+          pricePerNight: 'From 1,850,000 VND/night',
+          bedType: '1 Premium King Size Bed',
+          view: '180° Panoramic Lake & Karst View',
+          features: [
+            '180-degree panoramic bay vista',
+            'Dedicated private lounge area',
+            'Deep soaking tub with lake backdrop',
+            'Espresso machine & curated minibar',
+          ],
+          amenities: ['Lakeview soaking tub', 'Private living room', 'Coffee machine', 'Bluetooth sound system', 'Complimentary minibar'],
+          description: 'The pinnacle of luxury at Mơ Village. Sip a glass of wine in your lake-facing bathtub as the twilight colors melt across the bay.',
+        },
+        {
+          id: 'nha-mit',
+          name: 'Nhà Mít (Jackfruit House)',
+          capacity: '3 guests',
+          capacityNumber: 3,
+          image: '/images/room-nha-mit.webp',
+          tagline: 'Small family / friends room with 3 individual beds and airy common space.',
+          pricePerNight: 'From 2,100,000 VND/night',
+          bedType: '3 Single Beds or 1 King + 1 Single Bed',
+          view: 'Garden & Lake Glimpse',
+          features: [
+            '3 comfortable single beds',
+            'Spacious private bathroom',
+            'Open living space',
+            'Mini fridge & outdoor tea porch',
+          ],
+          amenities: ['Air conditioning', 'Mini fridge', 'Garden terrace', 'In-room safe', 'Organic bathroom amenities'],
+          description: 'Ideal for small families or close friends traveling together, sharing laughter on the shaded veranda facing lush greenery.',
+        },
+        {
+          id: 'nha-sang',
+          name: 'Nhà Sang (Grand Villa)',
+          capacity: '8 guests',
+          capacityNumber: 8,
+          image: '/images/room-nha-sang.webp',
+          tagline: 'Spacious 3-bedroom villa with full kitchen and private BBQ barbecue deck.',
+          pricePerNight: 'From 4,800,000 VND/night',
+          bedType: '3 En-suite Bedrooms (2 King + 2 Twin)',
+          view: 'Panoramic Bay & Mountain Vista',
+          features: [
+            '3 private en-suite bedrooms',
+            'Fully equipped kitchen & dining room',
+            'Grand living room for gathering',
+            'Dedicated private BBQ terrace',
+          ],
+          amenities: ['Cookware & basic spices', 'Outdoor BBQ grill', 'Dining table for 8-10', 'Smart TV', 'Washer & dryer'],
+          description: 'Complete privacy and luxury for extended families or groups. Host intimate dinners under starlit skies on your private patio.',
+        },
+        {
+          id: 'nha-cong-dong',
+          name: 'Nhà Cộng đồng (Community Stilt House)',
+          capacity: '20 guests',
+          capacityNumber: 20,
+          image: '/images/room-nha-cong-dong.webp',
+          tagline: 'Traditional stilt dorm for company retreats, workshops, and large gatherings.',
+          pricePerNight: 'From 7,500,000 VND/whole floor',
+          bedType: 'Traditional futon bedding or wooden bunk setup',
+          view: '360° Open Breeze & Lake Mountain Horizon',
+          features: [
+            'Accommodates up to 20 guests',
+            '4 modern separate shower & toilet rooms',
+            'Massive open-plan wooden hall',
+            'Ideal for team-building & yoga workshops',
+          ],
+          amenities: ['Hotel-grade bedding & linen', 'High-capacity cooling system', '4 Hot water showers', 'Polished hardwood floor'],
+          description: 'An authentic communal Mường stilt house experience with exceptional hygiene and contemporary comforts. Bond together under one majestic roof.',
+        },
+      ],
+    },
+    experiences: {
+      tagline: 'Experiences',
+      title: 'Discover & Indulge',
+      sub: 'From adventurous outdoor pursuits to artistic workshops, every experience is a treasured memory',
+      categories: {
+        facilities: 'Activities at Mơ',
+        workshops: 'Workshops & culture',
+        nearby: 'Nearby Destinations',
+      },
+      facilitiesList: [
+        {
+          id: 'onsen',
+          title: '4-Season Onsen Jacuzzi',
+          desc: 'Relax in natural hot jacuzzi amidst forest and karst mountain scenery',
+          image: '/images/fac-onsen.webp',
+        },
+        {
+          id: 'sauna',
+          title: 'Steam & Dry Sauna',
+          desc: 'Detoxify and refresh both body and mind with mineral salt heat',
+          image: '/images/campus-lake.webp',
+        },
+        {
+          id: 'herbal-bath',
+          title: 'Medicinal Herbal Soaking',
+          desc: 'Soak in natural herbal remedies to restore energy and vitality',
+          image: '/images/fac-herbal-bath.webp',
+        },
+        {
+          id: 'lake-fun',
+          title: 'Lake Recreation',
+          desc: 'Kayak, canoe, fishing - explore Hòa Bình Lake in versatile ways',
+          image: '/images/fac-billiard.webp',
+        },
+        {
+          id: 'boat-tour',
+          title: 'Scenic Boat Tour',
+          desc: 'Sunset cruises, visit floating raft houses and local fish farms',
+          image: '/images/gallery-lake-deck.webp',
+        },
+        {
+          id: 'teambuilding',
+          title: 'Team Building',
+          desc: 'Host company and group team building with outdoor activities and private grounds',
+          image: '/images/gallery-pool-sunset.webp',
+        },
+      ],
+      workshopsList: [
+        {
+          id: 'cam-hoa',
+          title: 'Cắm hoa',
+          desc: 'Natural style floral arranging workshop using local wild flowers of Hòa Bình',
+        },
+        {
+          id: 'lam-banh',
+          title: 'Làm bánh',
+          desc: 'Learn to make traditional Mường pastries and modern cakes from local produce',
+        },
+        {
+          id: 'thu-cong',
+          title: 'Thủ công',
+          desc: 'Weave Mường brocade motifs, wood carving, and learn ethnic artisan crafts',
+        },
+      ],
+      nearbyList: [
+        {
+          id: 'chua-thac-bo',
+          title: 'Chúa Thác Bờ',
+          desc: 'Majestic 300m waterfall with stunning landscapes, perfect for nature sightseeing and check-in photos',
+          distance: '15km',
+        },
+        {
+          id: 'suoi-ke',
+          title: 'Suối Ké',
+          desc: 'Crystal-clear natural rocky stream with refreshing water all year round',
+          distance: '8km',
+        },
+        {
+          id: 'hang-lo-lan',
+          title: 'Hang Lỗ Làn',
+          desc: 'Natural cave with million-year-old stalactites, a unique geological wonder of karst mountains',
+          distance: '12km',
+        },
+        {
+          id: 'ban-sung',
+          title: 'Bản Sưng',
+          desc: 'Traditional ethnic hamlet preserving authentic culture, architecture, costume, and cuisine',
+          distance: '10km',
+        },
+      ],
+    },
+    gallery: {
+      tagline: 'Moments at Mơ',
+      title: 'Photo Gallery',
+      sub: 'Picturesque snapshots capturing the poetic beauty of Mơ Village across all seasons.',
+      filterAll: 'All',
+      filterLandscape: 'Landscape',
+      filterRooms: 'Rooms & Villas',
+      filterFacilities: 'Wellness & Fun',
+      filterDining: 'Dining & Cafe',
+      images: [
+        { id: '1', title: 'Panoramic Mơ Village in Twilight', image: '/images/gallery-aerial.webp', category: 'landscape' as const },
+        { id: '2', title: 'Lakeview wooden balcony', image: '/images/gallery-balcony.webp', category: 'rooms' as const },
+        { id: '3', title: 'Curved infinity pool', image: '/images/fac-onsen.webp', category: 'facilities' as const },
+        { id: '4', title: 'Northwest regional gastronomy feast', image: '/images/gallery-restaurant.webp', category: 'dining' as const },
+        { id: '5', title: 'Morning mist over peaceful lake', image: '/images/campus-lake.webp', category: 'landscape' as const },
+        { id: '6', title: 'Timber bungalow & soaking tub', image: '/images/room-nha-tao.webp', category: 'rooms' as const },
+        { id: '7', title: 'Relaxing on water net hammock', image: '/images/gallery-lake-deck.webp', category: 'landscape' as const },
+        { id: '8', title: 'Billiards and lounge room', image: '/images/fac-billiard.webp', category: 'facilities' as const },
+        { id: '9', title: 'Peach House tucked in nature', image: '/images/room-nha-dao.webp', category: 'rooms' as const },
+        { id: '10', title: 'Lawn grounds and lush scenery', image: '/images/fac-teambuilding.webp', category: 'facilities' as const },
+        { id: '11', title: 'Pool embraced by mountain slope', image: '/images/fac-sauna.webp', category: 'facilities' as const },
+        { id: '12', title: 'Wooden framed lake horizon window', image: '/images/gallery-interior-wood.webp', category: 'rooms' as const },
+        { id: '13', title: 'Hilltop circular wooden deck', image: '/images/gallery-walkway.webp', category: 'landscape' as const },
+        { id: '14', title: 'Infinity pool under clear blue skies', image: '/images/gallery-pool-sunset.webp', category: 'facilities' as const },
+      ],
+    },
+    directions: {
+      tagline: 'Getting Here',
+      title: 'How to Reach Mơ',
+      sub: 'Escape the city rush. Arrive in tranquil lakeside paradise.',
+      mapTitle: 'Mơ Village on Google Maps',
+      openGoogleMaps: 'Directions',
+      hotlineDirect: 'Travel Assistance Hotline: (+84) 964 863 838',
+      routeDesc: 'From Hanoi city center, a picturesque 100+ km scenic journey leads you over misty hills and lakeside winding curves. Travel gently, Mơ is waiting for you.',
+      routeSteps: ['Hanoi', 'Hoa Lac', 'Hoa Binh', 'Mo Village'],
+      howToGet: [
+        {
+          title: 'Self-Drive (Car / Motorbike)',
+          desc: 'From Central Hanoi, take Thăng Long Boulevard -> Hòa Lạc – Hòa Bình Expressway -> Provincial Road 433 to Đà Bắc -> Mơ Village (approx. 2h to 2h30). Smooth paved road suitable for all vehicles.',
+          icon: '🚗',
+        },
+        {
+          title: 'Premium Limousine Shuttle',
+          desc: 'Daily 9–16 seater luxury limousine shuttles available from Hanoi directly to Mơ Village or Thung Nai Pier upon request.',
+          icon: '🚐',
+        },
+        {
+          title: 'Speedboat / Cruise Transfer',
+          desc: 'Park your vehicle at Thung Nai or Bích Hạ Harbor and take an exhilarating 20-minute speedboat ride directly to Mơ Village jetty.',
+          icon: '🚤',
+        },
+      ],
+      faqs: [
+        {
+          id: 'faq-1',
+          num: '01',
+          question: 'How far is Mơ from Hanoi?',
+          answer: 'Mơ is located on the edge of Hòa Bình Lake in Đà Bắc, over 100 km from Hanoi. Travel time by car is typically 3 to 3.5 hours depending on traffic.',
+        },
+        {
+          id: 'faq-2',
+          num: '02',
+          question: 'What activities are available at Mơ?',
+          answer: 'You can enjoy kayaking, SUP, swimming in 4-season infinity pool, herbal soaking, authentic Mường cuisine, and traditional cultural workshops.',
+        },
+        {
+          id: 'faq-3',
+          num: '03',
+          question: 'Is Mơ suitable for families and small groups?',
+          answer: 'Absolutely! Mơ offers varied accommodations from cozy timber rooms to private 3-bedroom villas with BBQ and large stilt dorms.',
+        },
+        {
+          id: 'faq-4',
+          num: '04',
+          question: 'How far in advance should we book?',
+          answer: 'On weekends and public holidays, rooms book out early. We recommend reserving 1 to 3 weeks in advance for the best options.',
+        },
+      ],
+    },
+    packages: {
+      tagline: 'Packages & Offers',
+      title: 'All-Inclusive Stays & Combos',
+      sub: 'Choose an all-inclusive package for effortless leisure and unforgettable memories.',
+      selectPackage: 'Choose Package',
+      items: [
+        {
+          id: 'combo-2n1d',
+          title: 'Weekend Escape (2D1N)',
+          subtitle: 'A quick rejuvenating weekend recharge',
+          price: '1,800,000',
+          priceUnit: 'VND/guest',
+          isPopular: false,
+          features: [
+            '1-night stay in lake-view signature room',
+            'Full gourmet breakfast & welcome herbal tea',
+            '1 full Mường specialty course lunch or dinner',
+            'Complimentary swimming pool & observation deck access',
+            '1 complimentary hour of Kayaking or Fishing rod rental',
+            'In-room bottled spring water, tea and coffee',
+          ],
+          itinerarySummary: [
+            'Day 1: Check-in at 14:00 -> Sunset kayak on the lake -> Mountain dinner -> Stargazing campfire.',
+            'Day 2: Sunrise yoga & view -> Breakfast -> Pool & sauna relax -> Check-out at 12:00.',
+          ],
+        },
+        {
+          id: 'combo-3n2d',
+          title: 'Complete Experience (3D2N)',
+          subtitle: 'The ultimate deep immersion in Northwest tranquility',
+          price: '3,200,000',
+          priceUnit: 'VND/guest',
+          isPopular: true,
+          badge: 'Recommended ★',
+          features: [
+            '2-night stay in luxury signature suite',
+            'All 02 breakfasts + 02 main local gourmet meals',
+            '90-minute scenic sunset boat tour across the bay',
+            '1 hands-on Cultural Workshop (Floral or Mường Pastry)',
+            'Full herbal barrel soak & Himalayan salt sauna session',
+            'Unlimited Kayak & paddle board usage',
+          ],
+          itinerarySummary: [
+            'Day 1: Warm welcome -> Check-in -> Afternoon kayak -> Lakeside hotpot dinner.',
+            'Day 2: Island boat tour & Thác Bờ temple -> Cultural workshop -> Herbal soak -> Starlit BBQ banquet.',
+            'Day 3: Ancient village stroll -> Leisure breakfast -> Farewell check-out with gift.',
+          ],
+        },
+      ],
+    },
+    booking: {
+      tagline: 'PLAN YOUR ESCAPE',
+      title: 'Shall we go to Mơ this weekend?',
+      sub: 'Pick your dates, invite your loved ones. Let Mơ care for every delicate detail.',
+      form: {
+        fullName: 'Your Full Name',
+        fullNamePlaceholder: 'E.g., David Miller',
+        phone: 'Phone Number / WhatsApp / Zalo',
+        phonePlaceholder: 'E.g., +84 987 654 321',
+        email: 'Email Address (Optional)',
+        emailPlaceholder: 'name@example.com',
+        checkIn: 'Check-in Date',
+        checkOut: 'Check-out Date',
+        adults: 'Adults (>12 yrs)',
+        children: 'Children (<12 yrs)',
+        roomType: 'Preferred Room or Package',
+        roomTypePlaceholder: '-- Select room or package --',
+        specialRequests: 'Special Requests (dietary, airport transfer, events...)',
+        specialRequestsPlaceholder: 'E.g., High-floor room with panoramic lake view, transfer shuttle needed...',
+        submit: 'Send Reservation Inquiry',
+        submitting: 'Submitting Inquiry...',
+        successTitle: 'Inquiry Received!',
+        successMessage: 'Thank you for reaching out to Mơ Village. Our reservations concierge will contact you via WhatsApp/Phone/Zalo within 15 minutes to confirm.',
+      },
+    },
+    footer: {
+      aboutTitle: 'Mơ Village Resort',
+      aboutDesc: 'A gentle dream on Hòa Bình Lake. Where tranquil jade waters and traditional stilt architecture embrace your soul in pure Northwest serenity.',
+      quickLinksTitle: 'Quick Links',
+      contactTitle: 'Contact Us',
+      address: 'Ké Hamlet, Hiền Lương Commune, Đà Bắc District, Hòa Bình Province, Vietnam',
+      hotline: '(+84) 964 863 838',
+      email: 'booking@movillage.vn',
+      hours: '24/7 Concierge Service',
+      followUs: 'Follow Us',
+      copyright: '© 2026 Mơ Village Resort. All rights reserved.',
+      poweredBy: 'A gentle dream on Hòa Bình Lake',
+    },
+  },
+};
