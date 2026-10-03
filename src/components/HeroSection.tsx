@@ -62,10 +62,10 @@ export function HeroSection({ onOpenBooking }: HeroSectionProps) {
             />
           </div>
 
-          {/* Slogan */}
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] mb-8 text-white drop-shadow-md max-w-3xl mx-auto px-4 font-sans font-medium tracking-normal leading-snug">
+          {/* Main H1 Heading */}
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] mb-8 text-white drop-shadow-md max-w-3xl mx-auto px-4 font-sans font-medium tracking-normal leading-snug">
             {t.hero.title}
-          </p>
+          </h1>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center px-4">
